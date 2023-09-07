@@ -17,7 +17,6 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer {
 
     //https://www.baeldung.com/spring-httpmessageconverter-rest
-    //https://stackoverflow.com/questions/67984754/how-to-perform-an-http-request-to-another-server-from-spring-boot-controller
 
     @Bean
     public RestTemplate restTemplate(List<HttpMessageConverter<?>> messageConverters) {

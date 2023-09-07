@@ -1,12 +1,13 @@
 package com.example.geverse.service.producer;
 
-import com.example.geverse.entity.ProteinSeq;
-import com.example.geverse.repository.ProteinSeqRepository;
+import com.example.geverse.entity.PrepSequence;
+import com.example.geverse.service.PrepSequenceService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class MQProducer {
@@ -15,24 +16,21 @@ public class MQProducer {
 
     @Value("${rabbitmq.routing.key}")
     private String routingKey;
-    RabbitTemplate template;
-    ProteinSeqRepository repository;
+    private final RabbitTemplate template;
+    private final PrepSequenceService service;
 
-    public MQProducer(RabbitTemplate template, ProteinSeqRepository repository) {
+    @Autowired
+    public MQProducer(RabbitTemplate template, PrepSequenceService service) {
         this.template = template;
-        this.repository = repository;
+        this.service = service;
     }
 
-    public void pushSpecieToQueue(String specie) {
-        //go to repository and get entity
-        //then push it to the queue
-        if (specie.equals("Citrus")) {
-            Optional<ProteinSeq> sequence = repository.findById(1L);
-            template.convertAndSend(routingKey, exchange, sequence);
-        }
+    public void pushRequestToQueue() {
+        Long maxId = service.getMaxIdFromPrep();
+        int randomId = ThreadLocalRandom.current().nextInt(1, Math.toIntExact(maxId + 1));
+        PrepSequence sequence = service.findById(Long.valueOf(randomId));
+        template.convertAndSend(routingKey, exchange, sequence);
     }
-
-
 
 
 }
