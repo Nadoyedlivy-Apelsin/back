@@ -15,10 +15,10 @@ public class MQController {
         this.producer = producer;
     }
 
-    @GetMapping("/")
-    public String sendSequence(){
+    @GetMapping("/create")
+    public void sendSequence(){
         producer.pushRequestToQueue();
-        return "redirect:";
+
     }
 
 
