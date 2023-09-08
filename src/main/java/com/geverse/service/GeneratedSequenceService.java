@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class GeneratedSequenceService {
 
-    private final GeneratedSequenceRepository repository;
+    private GeneratedSequenceRepository repository;
 
     public GeneratedSequenceService(GeneratedSequenceRepository repository) {
         this.repository = repository;

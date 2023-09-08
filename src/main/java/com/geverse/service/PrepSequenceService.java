@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional
 public class PrepSequenceService {
-    private PrepSequenceRepository repository;
+    private final PrepSequenceRepository repository;
 
     public PrepSequenceService(PrepSequenceRepository repository) {
         this.repository = repository;
