@@ -3,6 +3,7 @@ package com.geverse.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -17,7 +18,7 @@ public class GeneratedSequence {
     private String sequence;
 
     @ElementCollection(fetch = FetchType.LAZY)
-    private Set<String> properties = Set.of();
+    private List<String> properties = List.of();
 
     public Long getId() {
         return id;
@@ -35,11 +36,11 @@ public class GeneratedSequence {
         this.sequence = sequence;
     }
 
-    public Set<String> getProperties() {
+    public List<String> getProperties() {
         return properties;
     }
 
-    public void setProperties(Set<String> properties) {
+    public void setProperties(List<String> properties) {
         this.properties = properties;
     }
 }

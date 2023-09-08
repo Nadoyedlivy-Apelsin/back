@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(CardsController.BASE_URL)
 public class CardsController {
     static final String BASE_URL = "geverse.ru/";
-//    private final GeneratedSequenceService service;
-//
-//    public CardsController(GeneratedSequenceService service) {
-//        this.service = service;
-//    }
-//    @GetMapping("/get")
-//    public void transferGeneratedProtein() {
-//        service.findById();
-//
-//    }
+    private final GeneratedSequenceService service;
+
+    public CardsController(GeneratedSequenceService service) {
+        this.service = service;
+    }
+    @GetMapping("/get")
+    public void transferGeneratedProtein() {
+
+
+    }
 
 }
