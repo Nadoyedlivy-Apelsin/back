@@ -28,7 +28,7 @@ public class MQConsumer {
 
     @RabbitListener(queues = "${rabbitmq.queue.name}")
     public void consume(PrepSequence sequence) {
-        String requestBody = objectMapperUtil.convertSequenceToJSON(sequence);
+        String requestBody = objectMapperUtil.convertPrepSequenceToJSON(sequence);
         String responseBody;
         try {
             responseBody = formRequest(requestBody);
@@ -37,7 +37,7 @@ public class MQConsumer {
         }
 
         if (responseBody != null){
-             GeneratedSequence generatedSequence = objectMapperUtil.convertJSONToSequence(responseBody);
+             GeneratedSequence generatedSequence = objectMapperUtil.convertJSONToGeneratedSequence(responseBody);
              service.saveGenerated(generatedSequence);
         }
     }

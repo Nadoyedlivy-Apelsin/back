@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class GeneratedSequenceService {
 
-    private GeneratedSequenceRepository repository;
+    private final GeneratedSequenceRepository repository;
 
     public GeneratedSequenceService(GeneratedSequenceRepository repository) {
         this.repository = repository;
@@ -22,6 +22,10 @@ public class GeneratedSequenceService {
 
     public GeneratedSequence saveGenerated(GeneratedSequence sequence){
         return repository.save(sequence);
+    }
+
+    public Long getMaxIdFromGenerated(){
+        return repository.getMaxIdFromGenerated();
     }
 
 }

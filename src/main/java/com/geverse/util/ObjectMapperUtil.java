@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class ObjectMapperUtil {
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public String convertSequenceToJSON(PrepSequence sequence) {
+    public String convertPrepSequenceToJSON(PrepSequence sequence) {
         objectMapper.writer().withDefaultPrettyPrinter();
 
         try {
@@ -20,9 +20,17 @@ public class ObjectMapperUtil {
         }
     }
 
-    public GeneratedSequence convertJSONToSequence(String response){
+    public GeneratedSequence convertJSONToGeneratedSequence(String response){
         try {
             return objectMapper.readValue(response, GeneratedSequence.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String convertGeneratedSequenceToJSON(GeneratedSequence sequence){
+        try {
+            return objectMapper.writeValueAsString(sequence);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }

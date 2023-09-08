@@ -1,10 +1,8 @@
 package com.geverse.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.OnDelete;
 
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(schema = "seq_database", name = "generated_sequence")
