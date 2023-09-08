@@ -1,9 +1,8 @@
-package com.example.geverse.service;
+package com.geverse.service;
 
-import com.example.geverse.entity.PrepSequence;
-import com.example.geverse.repository.PrepSequenceRepository;
+import com.geverse.entity.PrepSequence;
+import com.geverse.repository.PrepSequenceRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Service;
 public class PrepSequenceService {
     private PrepSequenceRepository repository;
 
-    @Autowired
     public PrepSequenceService(PrepSequenceRepository repository) {
         this.repository = repository;
     }

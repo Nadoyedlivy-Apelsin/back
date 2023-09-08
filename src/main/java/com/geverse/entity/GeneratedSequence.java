@@ -1,11 +1,12 @@
-package com.example.geverse.entity;
+package com.geverse.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
 
 import java.util.Set;
 
 @Entity
-@Table()
+@Table(schema = "seq_database", name = "generated_sequence")
 public class GeneratedSequence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,11 +16,7 @@ public class GeneratedSequence {
     @Column
     private String sequence;
 
-    @CollectionTable(name = "gen_sequence_properties",
-                    joinColumns = @JoinColumn(name = "gen_sequence_id"),
-                     uniqueConstraints = @UniqueConstraint(columnNames = {"gen_sequence_id", "properties"}))
     @ElementCollection(fetch = FetchType.LAZY)
-    @JoinColumn
     private Set<String> properties = Set.of();
 
     public Long getId() {

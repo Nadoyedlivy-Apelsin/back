@@ -1,9 +1,9 @@
-package com.example.geverse.entity;
+package com.geverse.entity;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(schema = "seq_database", name = "prep_sequence")
 public class PrepSequence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,7 @@
-package com.example.geverse.util;
+package com.geverse.util;
 
-import com.example.geverse.entity.GeneratedSequence;
-import com.example.geverse.entity.PrepSequence;
+import com.geverse.entity.GeneratedSequence;
+import com.geverse.entity.PrepSequence;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,7 @@
-package com.example.geverse.service;
+package com.geverse.service;
 
-import com.example.geverse.entity.GeneratedSequence;
+import com.geverse.entity.GeneratedSequence;
+import com.geverse.repository.GeneratedSequenceRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +9,12 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class GeneratedSequenceService {
 
-    private com.example.geverse.repository.GeneratedSequenceService repository;
+    private final GeneratedSequenceRepository repository;
 
-    public GeneratedSequenceService(com.example.geverse.repository.GeneratedSequenceService repository) {
+    public GeneratedSequenceService(GeneratedSequenceRepository repository) {
         this.repository = repository;
     }
+
 
     public GeneratedSequence findById(Long id) {
         return repository.findById(id).orElse(null);

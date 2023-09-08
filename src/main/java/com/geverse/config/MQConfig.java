@@ -1,4 +1,4 @@
-package com.example.geverse.config;
+package com.geverse.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Value;

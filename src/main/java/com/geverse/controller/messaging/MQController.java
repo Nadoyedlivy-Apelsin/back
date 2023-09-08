@@ -1,6 +1,6 @@
-package com.example.geverse.controller.messaging;
+package com.geverse.controller.messaging;
 
-import com.example.geverse.service.producer.MQProducer;
+import com.geverse.service.producer.MQProducer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
