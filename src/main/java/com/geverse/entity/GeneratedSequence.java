@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(schema = "seq_database", name = "generated_sequence")
-public class GeneratedSequence implements Serializable {
+public class GeneratedSequence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "gen_sequence_id")

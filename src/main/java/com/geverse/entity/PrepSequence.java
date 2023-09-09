@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(schema = "seq_database", name = "prep_sequence")
-public class PrepSequence implements Serializable {
+public class PrepSequence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
