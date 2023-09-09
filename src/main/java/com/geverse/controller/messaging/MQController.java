@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(MQController.BASE_URL)
 public class MQController {
-    static final String BASE_URL = "http://geverse.ru/";
+    static final String BASE_URL = "http://api.geverse.ru/";
     private MQProducer producer;
 
     public MQController(MQProducer producer) {

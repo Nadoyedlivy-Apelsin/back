@@ -13,13 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping(CardsController.BASE_URL)
 public class CardsController {
-    static final String BASE_URL = "geverse.ru/";
+    static final String BASE_URL = "api.geverse.ru/";
     private final GeneratedSequenceService service;
 
     public CardsController(GeneratedSequenceService service) {
         this.service = service;
     }
-    @GetMapping("/get_generated")
+    @RequestMapping("/get_generated")
     public List<GeneratedSequence> transferGeneratedProtein() {
         int maxId = Math.toIntExact(service.getMaxIdFromGenerated());
         List<GeneratedSequence> generatedSequenceList = new ArrayList<>();
