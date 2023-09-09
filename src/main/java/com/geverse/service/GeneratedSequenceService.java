@@ -5,6 +5,8 @@ import com.geverse.repository.GeneratedSequenceRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class GeneratedSequenceService {
@@ -26,6 +28,10 @@ public class GeneratedSequenceService {
 
     public Long getMaxIdFromGenerated(){
         return repository.getMaxIdFromGenerated();
+    }
+
+    public List<GeneratedSequence> findAll(){
+        return repository.findAll();
     }
 
 }
