@@ -17,7 +17,7 @@ import java.net.URL;
 
 @Service
 public class MQConsumer {
-    private final String targetUrl = "http://api.gen.geverse.ru/generate_sequence";
+    private final String targetUrl = "http://api.geverse.ru/get_generated";
     private ObjectMapperUtil objectMapperUtil;
     private GeneratedSequenceService service;
 
