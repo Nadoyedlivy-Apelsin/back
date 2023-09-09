@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(CardsController.BASE_URL)
 public class CardsController {
-    static final String BASE_URL = "http://api.geverse.ru/";
+    static final String BASE_URL = "api.geverse.ru/";
     private final GeneratedSequenceService service;
 
     public CardsController(GeneratedSequenceService service) {
