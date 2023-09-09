@@ -2,9 +2,11 @@ package com.geverse.entity;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(schema = "seq_database", name = "prep_sequence")
-public class PrepSequence {
+public class PrepSequence implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

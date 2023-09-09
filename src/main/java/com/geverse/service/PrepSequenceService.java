@@ -27,6 +27,11 @@ public class PrepSequenceService {
         return repository.getMaxIdFromPrep();
     }
 
+    public PrepSequence findPrepSequenceByHeader(String header){
+        return repository.findPrepSequenceByHeader(header);
+    }
+
+
 
 
 }

@@ -10,4 +10,7 @@ public interface PrepSequenceRepository extends JpaRepository<PrepSequence, Long
     @Query("select coalesce(max(id), 0) from PrepSequence")
     Long getMaxIdFromPrep();
 
+    @Query("select p from PrepSequence p where p.header = ?1")
+    PrepSequence findPrepSequenceByHeader(String header);
+
 }

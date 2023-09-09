@@ -3,6 +3,7 @@ package com.geverse.controller.messaging;
 import com.geverse.service.producer.MQProducer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -16,9 +17,8 @@ public class MQController {
     }
 
     @GetMapping("/create")
-    public void sendSequence(){
-        producer.pushRequestToQueue();
+    public void sendSequence(@RequestHeader String header){
+        producer.pushRequestToQueue(header);
     }
-
 
 }
